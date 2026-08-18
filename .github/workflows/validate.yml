@@ -1,0 +1,26 @@
+name: Validate tap
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  casks:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate generated casks
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          casks=(Casks/*.rb)
+          if [ "${#casks[@]}" -eq 0 ]; then
+            echo 'No published casks yet.'
+            exit 0
+          fi
+          for cask in "${casks[@]}"; do ruby -c "$cask"; done
+          brew style "${casks[@]}"
