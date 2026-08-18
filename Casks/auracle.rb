@@ -2,8 +2,8 @@
 # frozen_string_literal: true
 
 cask "auracle" do
-  version "0.1.3"
-  sha256 "0c918a05b1b6d407c5b0c2baf81f216579f5eaa792d69edf0466f993859e6f5c"
+  version "0.1.4"
+  sha256 "203c817ee533ace995074463b63a229967c05b476b4e4b2754498b21a0ec56f3"
 
   url "https://github.com/auracarehq/homebrew-tap/releases/download/mac-v#{version}/Auracle.dmg"
   name "Auracle."
@@ -11,6 +11,11 @@ cask "auracle" do
   homepage "https://auracle.health/"
 
   auto_updates true
+  # The bare symbol, not the comparison-string form. For a cask a symbol already
+  # means "this version or newer" — brew info renders it as macOS >= 14 either
+  # way — but RuboCop's Homebrew/OSDependsOn rejects the string, and brew style
+  # is a hard gate in the publish job. The string sat here unnoticed because that
+  # job runs only on publish=true, which nothing used until 0.1.3.
   depends_on macos: :sonoma
 
   app "Auracle.app"
