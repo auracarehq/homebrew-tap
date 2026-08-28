@@ -2,8 +2,8 @@
 # frozen_string_literal: true
 
 cask "auracle" do
-  version "0.1.4.285"
-  sha256 "81df020604d6ae571beda737a0cb9e3543fadfbe6172f1b2a4b8f3c9f5e97539"
+  version "0.1.4.287"
+  sha256 "6e3986534ef71398e7e183ca20fc3f35234f0685a4194a5effb64b3b84c0f1a7"
 
   url "https://github.com/auracarehq/homebrew-tap/releases/download/mac-v#{version}/Auracle.dmg"
   name "Auracle."
