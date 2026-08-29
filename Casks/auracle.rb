@@ -2,12 +2,12 @@
 # frozen_string_literal: true
 
 cask "auracle" do
-  version "0.1.4.287"
-  sha256 "6e3986534ef71398e7e183ca20fc3f35234f0685a4194a5effb64b3b84c0f1a7"
+  version "0.1.4.288"
+  sha256 "cf53135e25467e75f89876e20f2adf3cf28842e568dca47ef65d05a1c1930b29"
 
   url "https://github.com/auracarehq/homebrew-tap/releases/download/mac-v#{version}/Auracle.dmg"
   name "Auracle."
-  desc "Personal wellness twin with private local-data connectors"
+  desc "Personal wellness agent with private local-data connectors"
   homepage "https://auracle.health/"
 
   auto_updates true
