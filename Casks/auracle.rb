@@ -2,10 +2,10 @@
 # frozen_string_literal: true
 
 cask "auracle" do
-  version "0.1.4.611"
-  sha256 "9af3fa2bb7471a76b5c44bf64c78f931b2e6c1bade45ac9cc4650cdc5a8b081d"
+  version "1.2.0,1628"
+  sha256 "355f787ac466f219b53d639f1c8f4494d1d0998d25704c02658b9685c03091af"
 
-  url "https://github.com/auracarehq/homebrew-tap/releases/download/mac-v#{version}/Auracle.dmg"
+  url "https://github.com/auracarehq/homebrew-tap/releases/download/mac-v#{version.csv.first}-#{version.csv.second}/Auracle.dmg"
   name "Auracle."
   desc "Personal wellness agent with private local-data connectors"
   homepage "https://auracle.health/"
@@ -16,6 +16,9 @@ cask "auracle" do
   # way — but RuboCop's Homebrew/OSDependsOn rejects the string, and brew style
   # is a hard gate in the publish job. The string sat here unnoticed because that
   # job runs only on publish=true, which nothing used until 0.1.3.
+  # Apple silicon only since 2026-09-28: a clear refusal on Intel rather than
+  # an app that will not launch.
+  depends_on arch: :arm64
   depends_on macos: :sonoma
 
   app "Auracle.app"
